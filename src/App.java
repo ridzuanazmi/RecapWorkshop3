@@ -12,8 +12,7 @@ public class App {
 		Scanner scanner = new Scanner(System.in); // Create a Scanner object
 		String action = "";
 		String user = null;
-		ArrayList<String> shoppingCart = new ArrayList<String>(); // Create an ArrayList object
-		// File cartDBFolder = retrieveCartDBFolder(); // Create a folder to store the shopping cart database if it does not exist											
+		ArrayList<String> shoppingCart = new ArrayList<String>(); // Create an ArrayList object										
 		printMenu();
 
 		while (action != "exit") {
@@ -195,20 +194,6 @@ public class App {
 		}
 	}
 
-	private static File retrieveCartDBFolder() {
-		File cartDBFolder = new File("cartDB");
-		if (!cartDBFolder.exists()) {
-			if (cartDBFolder.mkdir()) {
-				System.out.println("cartDB folder created successfully.");
-			} else {
-				System.out.println("Failed to create cartDB folder.");
-			}
-		} else {
-			System.out.println("cartDB folder already exists.");
-		}
-		return cartDBFolder;
-	}
-
 	private static void removeItemFromCart(ArrayList<String> shoppingCart, String itemToDelete) {
 		if (itemToDelete.matches("\\d+")) {
 			int itemNumber = Integer.parseInt(itemToDelete);
@@ -226,12 +211,6 @@ public class App {
 			} else {
 				System.out.printf("%s is not in your shopping cart.\n", itemToDelete);
 			}
-		}
-	}
-
-	private static void listItem(ArrayList<String> shoppingCart) {
-		for (int i = 0; i < shoppingCart.size(); i++) {
-			System.out.printf("%d. %s\n", i + 1, shoppingCart.get(i));
 		}
 	}
 
